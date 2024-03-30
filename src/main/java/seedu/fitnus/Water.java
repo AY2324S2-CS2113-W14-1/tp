@@ -10,7 +10,7 @@ public class Water {
         this.dateAdded = dateAdded;
     }
 
-    public static void getInstance(int amount, String dateAdded) {
+    public static void initializeWater(int amount, String dateAdded) {
         if (instance == null) {
             instance = new Water(amount, dateAdded);
         } else {

@@ -6,12 +6,7 @@ import seedu.fitnus.Meal;
 
 import seedu.fitnus.Water;
 
-import seedu.fitnus.exception.IncompleteDrinkException;
-import seedu.fitnus.exception.IncompleteMealException;
-import seedu.fitnus.exception.InvalidServingSizeException;
-import seedu.fitnus.exception.UnregisteredDrinkException;
-import seedu.fitnus.exception.UnregisteredMealException;
-import seedu.fitnus.exception.InvalidListIndexException;
+import seedu.fitnus.exception.*;
 import seedu.fitnus.storage.Storage;
 
 import java.io.ByteArrayOutputStream;
@@ -106,7 +101,7 @@ public class UserTest {
 
     @Test
     public void handleViewWaterIntake_correctWaterCalculation_viewWaterAccurate() {
-        Water.getInstance(500, "28-04-2024");
+        Water.initializeWater(500, "28-04-2024");
 
         testUser.handleViewWaterIntake();
         String expectedOutput = "Total water intake: 500";
@@ -235,7 +230,7 @@ public class UserTest {
 
     @Test
     public void handleEditMealServingSize_validCommand_editMealSuccessful() throws InvalidListIndexException,
-            InvalidServingSizeException {
+            InvalidServingSizeException, IncompleteEditMealException {
         String command = "editMeal 2 s/100000000";
         testUser.handleEditMealServingSize(command);
 
@@ -246,7 +241,7 @@ public class UserTest {
 
     @Test
     public void handleEditDrinkServingSize_validCommand_editDrinkSuccessful() throws InvalidListIndexException,
-            InvalidServingSizeException {
+            InvalidServingSizeException, IncompleteEditDrinkException {
         String command = "editDrink 1 s/100000000";
         testUser.handleEditDrinkServingSize(command);
 

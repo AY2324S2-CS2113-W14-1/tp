@@ -5,6 +5,9 @@ import seedu.fitnus.Exercise;
 import seedu.fitnus.ExerciseIntensity;
 import seedu.fitnus.Meal;
 import seedu.fitnus.exception.IncompleteDrinkException;
+import seedu.fitnus.exception.IncompleteEditDrinkException;
+import seedu.fitnus.exception.IncompleteEditMealException;
+import seedu.fitnus.exception.IncompleteEditWaterException;
 import seedu.fitnus.exception.IncompleteExerciseException;
 import seedu.fitnus.exception.IncompleteMealException;
 import seedu.fitnus.exception.InvalidCommandException;
@@ -106,6 +109,12 @@ public class Parser {
             System.out.println("Incomplete command, the format must be [ate m/MEAL s/SERVING_SIZE].");
         } catch (IncompleteExerciseException e) {
             System.out.println("Incomplete command, the format must be [exercise e/MEAL d/SERVING_SIZE].");
+        } catch (IncompleteEditWaterException e) {
+            System.out.println("Incomplete command, the format must be [editWater s/TOTAL_WATER_INTAKE].");
+        } catch (IncompleteEditDrinkException e) {
+            System.out.println("Incomplete command, the format must be [editDrink INDEX s/TOTAL_WATER_INTAKE].");
+        } catch (IncompleteEditMealException e) {
+            System.out.println("Incomplete command, the format must be [editMeal INDEX s/TOTAL_WATER_INTAKE].");
         } catch (UnregisteredDrinkException e) {
             System.out.println("Sorry that drink is not registered in the database.");
         } catch (UnregisteredMealException e) {
@@ -226,25 +235,48 @@ public class Parser {
         return infoDrinkDescription;
     }
 
-    public static void parseEditMeal(String command) throws InvalidServingSizeException {
+    public static void parseEditMeal(String command) throws InvalidServingSizeException, IncompleteEditMealException,
+            InvalidListIndexException {
         int mealSizePosition = command.indexOf("/");
-        editMealIndex = Integer.parseInt(command.substring(9, mealSizePosition - 2).trim()) - 1;
+        if (!command.contains("s/")) {
+            throw new IncompleteEditMealException();
+        }
+        int editMealIndexStart = command.indexOf("editMeal") + 9;
+        int editMealIndexEnd = mealSizePosition - 2;
+        if (editMealIndexStart < editMealIndexEnd) {
+            editMealIndex = Integer.parseInt(command.substring(editMealIndexStart, editMealIndexEnd).trim()) - 1;
+        } else {
+            throw new InvalidListIndexException();
+        }
         editMealSize = Integer.parseInt(command.substring(mealSizePosition + 1).trim());
         if (editMealSize <= 0) {
             throw new InvalidServingSizeException();
         }
     }
 
-    public static void parseEditDrink(String command) throws InvalidServingSizeException {
+    public static void parseEditDrink(String command) throws InvalidServingSizeException, IncompleteEditDrinkException,
+            InvalidListIndexException {
         int drinkSizePosition = command.indexOf("/");
-        editDrinkIndex = Integer.parseInt(command.substring(10, drinkSizePosition - 2).trim()) - 1;
+        if (!command.contains("s/")) {
+            throw new IncompleteEditDrinkException();
+        }
+        int editDrinkIndexStart = command.indexOf("editDrink") + 10;
+        int editDrinkIndexEnd = drinkSizePosition - 1;
+        if (editDrinkIndexStart < editDrinkIndexEnd) {
+            editDrinkIndex = Integer.parseInt(command.substring(editDrinkIndexStart, editDrinkIndexEnd).trim()) - 1;
+        } else {
+            throw new InvalidListIndexException();
+        }
         editDrinkSize = Integer.parseInt(command.substring(drinkSizePosition + 1).trim());
         if (editDrinkSize <= 0) {
             throw new InvalidServingSizeException();
         }
     }
 
-    public static void parseEditWater(String command) throws InvalidServingSizeException {
+    public static void parseEditWater(String command) throws InvalidServingSizeException, IncompleteEditWaterException {
+        if (!command.contains("s/")) {
+            throw new IncompleteEditWaterException();
+        }
         int waterSizePosition = command.indexOf("s/") + 2;
         editWaterSize = Integer.parseInt(command.substring(waterSizePosition).trim());
         if (editWaterSize <= 0) {
