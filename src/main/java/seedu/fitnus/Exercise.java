@@ -101,6 +101,15 @@ public class Exercise {
         System.out.println();
     }
 
+    public static void listAvailableExercises() {
+        System.out.println("Available exercises: ");
+        for (String exercise : exerciseDetails.keySet()) {
+            System.out.println("- " + exercise);
+        }
+        System.out.println();
+        System.out.println("You may also input an exercise that isn't here.");
+    }
+    
     public static HashMap<String, int[]> getExerciseDetails() {
         return exerciseDetails;
     }

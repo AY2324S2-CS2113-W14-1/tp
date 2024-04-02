@@ -91,6 +91,12 @@ public class Parser {
                 user.handleDrink(command);
             } else if (command.startsWith("exercise")) {
                 user.handleExercise(command);
+            } else if (command.startsWith("allMeals")) {
+                Meal.listAvailableMeals();
+            } else if (command.startsWith("allDrinks")) {
+                Drink.listAvailableDrinks();
+            } else if (command.startsWith("allExercises")) {
+                Exercise.listAvailableExercises();
             } else if (command.startsWith("infoMeal")) {
                 Meal.handleInfoMeal(command);
             } else if (command.startsWith("infoDrink")) {

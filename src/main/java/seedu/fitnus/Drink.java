@@ -63,6 +63,16 @@ public class Drink  {
         System.out.println();
     }
 
+    public static void listAvailableDrinks() {
+        System.out.println("Available drinks: ");
+        for (String drink : nutrientDetails.keySet()) {
+            System.out.println("- " + drink);
+        }
+        System.out.println();
+        System.out.println("You may also input a drink that isn't here.");
+    }
+
+
     public String getName() {
         return name;
     }

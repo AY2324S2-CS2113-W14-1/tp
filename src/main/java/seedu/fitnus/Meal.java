@@ -97,6 +97,15 @@ public class Meal {
         System.out.println();
     }
 
+    public static void listAvailableMeals() {
+        System.out.println("Available meals: ");
+        for (String meal : nutrientDetails.keySet()) {
+            System.out.println("- " + meal);
+        }
+        System.out.println();
+        System.out.println("You may also input a meal that isn't here.");
+    }
+
     public static HashMap<String, int[]> getNutrientDetails() {
         return nutrientDetails;
     }
