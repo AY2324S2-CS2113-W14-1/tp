@@ -210,6 +210,9 @@ public class Parser {
         System.out.println("- Add a drink: drink d/DRINK s/VOLUME(ML)");
         System.out.println("- Track an exercise: exercise e/EXERCISE d/DURATION(MINUTES) " +
                 "i/INTENSITY(HIGH, MEDIUM, LOW)");
+        System.out.println("- View all meals that you can input: allMeals");
+        System.out.println("- View all drinks that you can input: allDrinks");
+        System.out.println("- View all exercises that you can input: allExercises");
         System.out.println("- Find the information about a certain meal: infoMeal MEAL");
         System.out.println("- Find the information about a certain drink: infoDrink DRINK");
         System.out.println("- Find the information about a certain exercise: infoExercise EXERCISE");
