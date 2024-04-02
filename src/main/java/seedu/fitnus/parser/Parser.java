@@ -24,7 +24,8 @@ import seedu.fitnus.user.User;
 import seedu.fitnus.validator.IntegerValidation;
 
 /**
- * The Parser class is responsible for parsing user commands and delegating them to the appropriate classes for execution.
+ * The Parser class is responsible for parsing user commands and delegating them to the appropriate classes for
+ * execution.
  */
 public class Parser {
     public static final int MIN_INTEGER_VALUE = -2147483648;
