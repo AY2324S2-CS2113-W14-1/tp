@@ -16,6 +16,18 @@
 - Using a hashmap, access the data regarding the amount of calories burnt per hour for the given exercise and calculate the total calories burnt for the given duration.
 - Store the total calories burnt through exercise in the User class
 
+### CSV Storage
+- Create three CSV files for storing meal nutrients, drink nutrients, and exercise calories information.
+- For each line in the CSV, parse the string with "," as the delimiter, with the first element being the name and the others being the nutrient/calories information 
+- Save each description name and nutrient/calories information in the corresponding hashmap (meal, drink, and exercise) to be used by other functions. 
+
+### Saved Meal, Drink, Exercises Storage
+- Each meal object in the meal list corresponds to a string with a format of `meal_name,serving_size,date`
+- Each drink object in the drink list corresponds to a string with a format of `drink_name,volume,date`
+- Each exercise object in the exercise list corresponds to a string with a format of `exercise_name,duration,intensity,date`
+- To store, convert all objects (meal, drink, exercise) in the list into its corresponding string, then write the appended strings into a .txt file
+- To retrieve, parse each string using "," as its delimiter and convert it into its corresponding objects, then add all the entries to the object list (mealList, drinkList, exerciseList)
+
 
 ## Product scope
 ### Target user profile

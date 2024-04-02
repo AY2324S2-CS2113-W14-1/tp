@@ -23,6 +23,9 @@ import seedu.fitnus.exception.InvalidDateException;
 import seedu.fitnus.user.User;
 import seedu.fitnus.validator.IntegerValidation;
 
+/**
+ * The Parser class is responsible for parsing user commands and delegating them to the appropriate classes for execution.
+ */
 public class Parser {
     public static final int MIN_INTEGER_VALUE = -2147483648;
     public static final int MAX_INTEGER_VALUE = 2147483647;
@@ -77,10 +80,20 @@ public class Parser {
     public static ExerciseIntensity exerciseIntensity;
     private User user;
 
+    /**
+     * Constructs a Parser object with the given User.
+     *
+     * @param user The User object to interact with.
+     */
     public Parser(User user) {
         this.user = user;
     }
 
+    /**
+     * Parses the user command and executes the corresponding action.
+     *
+     * @param command The command entered by the user.
+     */
     public void handleCommand(String command) {
         try {
             if (command.equals("help")) {
@@ -204,6 +217,9 @@ public class Parser {
 
     }
 
+    /**
+     * Displays a list of valid commands and their formats.
+     */
     public static void handleHelp() {
         System.out.println("here's all the valid commands i recognise: ");
         System.out.println("- Add a meal eaten: eat m/MEAL s/SERVING_SIZE");
@@ -246,6 +262,14 @@ public class Parser {
         System.out.println("- Exit the app: exit ");
     }
 
+    /**
+     * Parses a meal command string and extracts the meal description and size.
+     *
+     * @param command The command entered by the user.
+     * @throws IncompleteMealException If the meal command is incomplete.
+     * @throws UnregisteredMealException If the meal is not registered in the database.
+     * @throws NegativeValueException If a negative value is encountered.
+     */
     public static void parseMeal(String command) throws IncompleteMealException, UnregisteredMealException,
             NegativeValueException {
         if (!command.contains("m/") || !command.contains("s/")) {
@@ -267,6 +291,14 @@ public class Parser {
         IntegerValidation.checkIntegerGreaterThanZero(mealSize);
     }
 
+    /**
+     * Parses the command for adding a drink.
+     *
+     * @param command The command entered by the user.
+     * @throws IncompleteDrinkException If the drink command is incomplete.
+     * @throws UnregisteredDrinkException If the drink is not registered in the database.
+     * @throws NegativeValueException If a negative value is encountered.
+     */
     public static void parseDrink(String command) throws IncompleteDrinkException, UnregisteredDrinkException,
             NegativeValueException {
         if (!command.contains("d/") || !command.contains("s/")) {
@@ -289,6 +321,14 @@ public class Parser {
         IntegerValidation.checkIntegerGreaterThanZero(drinkSize);
     }
 
+    /**
+     * Parses the command for obtaining information about a meal.
+     *
+     * @param command The command entered by the user.
+     * @return The description of the meal.
+     * @throws UnregisteredMealException If the meal is not registered in the database.
+     * @throws IncompleteInfoException If the command is incomplete.
+     */
     public static String parseInfoMeal(String command) throws UnregisteredMealException, IncompleteInfoException {
         int mealIndex = 9;
         if (command.length() < mealIndex + 1) {
@@ -302,6 +342,14 @@ public class Parser {
         return infoMealDescription;
     }
 
+    /**
+     * Parses the command for obtaining information about an exercise.
+     *
+     * @param command The command entered by the user.
+     * @return The description of the exercise.
+     * @throws UnregisteredExerciseException If the exercise is not registered in the database.
+     * @throws IncompleteInfoException If the command is incomplete.
+     */
     public static String parseInfoExercise(String command) throws UnregisteredExerciseException,
             IncompleteInfoException {
         int exerciseIndex = 13;
@@ -315,6 +363,14 @@ public class Parser {
         return infoExerciseDescription;
     }
 
+    /**
+     * Parses the command for obtaining information about a drink.
+     *
+     * @param command The command entered by the user.
+     * @return The description of the drink.
+     * @throws UnregisteredDrinkException If the drink is not registered in the database.
+     * @throws IncompleteInfoException If the command is incomplete.
+     */
     public static String parseInfoDrink(String command) throws UnregisteredDrinkException, IncompleteInfoException {
         int drinkIndex = 10;
         if (command.length() < drinkIndex + 1) {
@@ -327,6 +383,13 @@ public class Parser {
         return infoDrinkDescription;
     }
 
+    /**
+     * Parses the command for editing a meal.
+     *
+     * @param command The command entered by the user.
+     * @throws NegativeValueException If a negative value is encountered.
+     * @throws IncompleteEditException If the command is incomplete.
+     */
     public static void parseEditMeal(String command) throws NegativeValueException, IncompleteEditException {
         int mealSizePosition = command.indexOf("s/");
         if (mealSizePosition <= 9) {
@@ -338,6 +401,13 @@ public class Parser {
         IntegerValidation.checkIntegerGreaterThanZero(editMealSize);
     }
 
+    /**
+     * Parses the command for editing a drink.
+     *
+     * @param command The command entered by the user.
+     * @throws NegativeValueException If a negative value is encountered.
+     * @throws IncompleteEditException If the command is incomplete.
+     */
     public static void parseEditDrink(String command) throws NegativeValueException, IncompleteEditException {
         int drinkSizePosition = command.indexOf("s/");
         if (drinkSizePosition <= 10) {
@@ -349,6 +419,13 @@ public class Parser {
         IntegerValidation.checkIntegerGreaterThanZero(editDrinkSize);
     }
 
+    /**
+     * Parses the command for editing water intake.
+     *
+     * @param command The command entered by the user.
+     * @throws NegativeValueException If a negative value is encountered.
+     * @throws IncompleteEditException If the command is incomplete.
+     */
     public static void parseEditWater(String command) throws NegativeValueException, IncompleteEditException {
         int waterSizePosition = command.indexOf("s/") + 2;
         if (waterSizePosition <= 1) { //-1 + 2
@@ -358,6 +435,11 @@ public class Parser {
         IntegerValidation.checkIntegerGreaterThanZero(editWaterSize);
     }
 
+    /**
+     * Parses the data for storing meal information.
+     *
+     * @param data The data string to be parsed.
+     */
     public static void parseMealStorage(String data) {
         String delimiter = ",";
         String[] arrayOfMealData = data.split(delimiter);
@@ -366,6 +448,11 @@ public class Parser {
         mealStorageDate = arrayOfMealData[2];
     }
 
+    /**
+     * Parses the data for storing drink information.
+     *
+     * @param data The data string to be parsed.
+     */
     public static void parseDrinkStorage(String data) {
         String delimiter = ",";
         String[] arrayOfDrinkData = data.split(delimiter);
@@ -374,6 +461,11 @@ public class Parser {
         drinkStorageDate = arrayOfDrinkData[2];
     }
 
+    /**
+     * Parses the data for storing exercise information.
+     *
+     * @param data The data string to be parsed.
+     */
     public static void parseExerciseStorage(String data) {
         String delimiter = ",";
         String[] arrayOfExerciseData = data.split(delimiter);
@@ -383,6 +475,14 @@ public class Parser {
         exerciseStorageDate = arrayOfExerciseData[3];
     }
 
+    /**
+     * Parses the command for adding an exercise.
+     *
+     * @param command The command entered by the user.
+     * @throws IncompleteExerciseException If the exercise command is incomplete.
+     * @throws UnregisteredExerciseException If the exercise is not registered in the database.
+     * @throws NegativeValueException If a negative value is encountered.
+     */
     public static void parseExercise(String command) throws IncompleteExerciseException, UnregisteredExerciseException,
             NegativeValueException {
         if (!command.contains("e/") || !command.contains("d/") || !command.contains("i/")) {
@@ -413,6 +513,11 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses the nutrient information for a meal.
+     *
+     * @param data The nutrient data string to be parsed.
+     */
     public static void parseMealNutrient(String data) {
         String delimiter = ",";
         String[] arrayOfMealNutrient = data.split(delimiter);
@@ -425,6 +530,11 @@ public class Parser {
         mealNutrientSugar = Integer.parseInt(arrayOfMealNutrient[6]);
     }
 
+    /**
+     * Parses the nutrient information for a drink.
+     *
+     * @param data The nutrient data string to be parsed.
+     */
     public static void parseDrinkNutrient(String data) {
         String delimiter = ",";
         String[] arrayOfDrinkNutrient = data.split(delimiter);
@@ -436,6 +546,11 @@ public class Parser {
         drinkNutrientFat = Integer.parseInt(arrayOfDrinkNutrient[5]);
     }
 
+    /**
+     * Parses the calorie information for an exercise.
+     *
+     * @param data The calorie data string to be parsed.
+     */
     public static void parseExerciseCalories(String data) {
         String delimiter = ",";
         String[] arrayOfExerciseCalories = data.split(delimiter);
@@ -445,6 +560,13 @@ public class Parser {
         exerciseCaloriesLow = Integer.parseInt(arrayOfExerciseCalories[3]);
     }
 
+    /**
+     * Parses the date from a command string.
+     *
+     * @param command The command entered by the user.
+     * @return The parsed date string.
+     * @throws InvalidDateException If the date format is invalid.
+     */
     public static String parseListDate(String command) throws InvalidDateException {
         int indexOfDate = command.indexOf("d/") + 2;
         String date = command.substring(indexOfDate);
