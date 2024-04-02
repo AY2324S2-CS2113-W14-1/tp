@@ -10,7 +10,7 @@ public class CSVReader {
     private static HashMap<String, String[]> foodItems = new HashMap<>();
 
     public static void main(String[] args){
-        String mealCsvFile = "./tp/db//Meal_db.csv";
+        String mealCsvFile = "./tp/db/Meal_db.csv";
         String drinkCSVFile = "./db/Drink_db.csv";
         CSVReader.read(mealCsvFile);
     }
@@ -39,12 +39,13 @@ public class CSVReader {
             e.printStackTrace();
         }
     }
-    public static String readMealInfo(String filename, String foodName) {
+    public static String readInputInfo(String filename, String foodName) {
         read(filename);
+        String foodNameTrimmed = foodName.toLowerCase().trim();
         StringBuilder result = new StringBuilder();
         boolean found = false;
         String[] nutrientInfo = null;
-        if (foodItems.containsKey(foodName)) {
+        if (foodItems.containsKey(foodNameTrimmed)) {
             nutrientInfo = foodItems.get(foodName);
             found = true;
         } else {
@@ -57,10 +58,6 @@ public class CSVReader {
             }
         }
         return result.toString();
-    }
-
-    public static void combineKeyandValue(String key) {
-
     }
 }
 

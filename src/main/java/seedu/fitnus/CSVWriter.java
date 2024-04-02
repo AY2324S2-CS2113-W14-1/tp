@@ -12,7 +12,9 @@ public class CSVWriter {
     private static CSVReader csvreader = new CSVReader();
 
     public static void main(String[] args) {
-        writeIntoFile("Chicken Rice", "FOOD");
+        writeIntoFile("pizza", "food");
+        writeIntoFile("Chicken Rice", "food");
+
     }
     public static void writeIntoFile(String foodItem, String fileName) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -33,16 +35,13 @@ public class CSVWriter {
                 System.out.println("error with creating a file");
             }
         }
-        try (FileWriter fw = new FileWriter(file)){
+        try (FileWriter fw = new FileWriter(file, true)){
             BufferedWriter writer = new BufferedWriter(fw);
-            writer.write(csvreader.readMealInfo(readFromFile, foodItem));
+            writer.write(csvreader.readInputInfo(readFromFile, foodItem));
             writer.newLine();
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    public static void deleteFromFile(String foodItem, String fileName) {
-
     }
 }

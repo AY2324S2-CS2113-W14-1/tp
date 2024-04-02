@@ -304,6 +304,8 @@ public class User {
             drinkList.add(new Drink(drinkName, servingSize, currentDate.getDate()));
         }
         System.out.println("Added " + servingSize + " ml of " + drinkName);
+        csvWriter.writeIntoFile(drinkName, "Drink");
+
     }
 
     public void handleViewCalories() {
@@ -329,7 +331,7 @@ public class User {
             if (caloriesCount < RECOMMEND_CALORIE_INTAKE / 4 - 200  || Math.min(caloriesCount, RECOMMEND_CALORIE_INTAKE / 4) == caloriesCount) {
                 System.out.println("Recommend eating more food. Your daily recommended calories intake by this time is 550 calories. You have:  " + (RECOMMEND_CALORIE_INTAKE - caloriesCount) + "calories left!");
             } else if (caloriesCount > RECOMMEND_CALORIE_INTAKE / 4 + 200 || Math.max(caloriesCount, RECOMMEND_CALORIE_INTAKE / 4 + 200) == caloriesCount) {
-                System.out.println("Recommend eating less food. ");
+                System.out.println("Recommend eating less food.");
             } else {
                 System.out.println("Eating sufficient amount of calories by this time of day. Good job!");
             }
@@ -337,7 +339,7 @@ public class User {
             if (caloriesCount < RECOMMEND_CALORIE_INTAKE / 2 - 100 || Math.min(caloriesCount, RECOMMEND_WATER_INTAKE/2) == caloriesCount) {
                 System.out.println("Recommend eating more food. Your daily recommended calories intake by this time is 1100 calories. You have:  " + (RECOMMEND_CALORIE_INTAKE - caloriesCount) + "calories left!");
             } else if (caloriesCount > RECOMMEND_CALORIE_INTAKE / 4 + 200 || Math.max(caloriesCount, RECOMMEND_CALORIE_INTAKE / 4 + 200) == caloriesCount) {
-                System.out.println("Recommend eating less food. ");
+                System.out.println("Recommend eating less food.");
             } else {
                 System.out.println("Eating sufficient amount of calories by this time of day. Good job!");
             }
@@ -345,7 +347,7 @@ public class User {
             if (caloriesCount < RECOMMEND_CALORIE_INTAKE - 100 || Math.min(caloriesCount, RECOMMEND_WATER_INTAKE/2) == caloriesCount) {
                 System.out.println("Recommend eating more food. Your daily recommended calories intake by this time is 1650 calories. You have:  " + (RECOMMEND_CALORIE_INTAKE - caloriesCount) + "calories left!");
             } else if (caloriesCount > RECOMMEND_CALORIE_INTAKE / 4 + 200 || Math.max(caloriesCount, RECOMMEND_CALORIE_INTAKE / 4 + 200) == caloriesCount) {
-                System.out.println("Recommend eating less food. ");
+                System.out.println("Recommend eating less food.");
             } else {
                 System.out.println("Eating sufficient amount of calories by this time of day. Good job! ");
             }
@@ -396,13 +398,13 @@ public class User {
             }
         } else if (currentHour >= 12 && currentHour < 18) {
             if (waterIntake < RECOMMEND_WATER_INTAKE / 2 || Math.min(waterIntake, RECOMMEND_WATER_INTAKE/2) == waterIntake) {
-                System.out.println("Recommend drinking more water. Your daily recommended water intake by this time is 400ml of water. You have:  " + (RECOMMEND_WATER_INTAKE - waterIntake) + "ml left!");
+                System.out.println("Recommend drinking more water. Your daily recommended water intake by this time is 1300ml of water. You have:  " + (RECOMMEND_WATER_INTAKE - waterIntake) + "ml left!");
             } else {
                 System.out.println("On track with water intake!");
             }
         } else {
-            if (currentHour < RECOMMEND_WATER_INTAKE || Math.min(waterIntake, RECOMMEND_WATER_INTAKE/2) == waterIntake) {
-                System.out.println("Recommend drinking more water. Your daily recommended water intake by this time is 800ml of water. You have:  " + (RECOMMEND_WATER_INTAKE - waterIntake) + "ml left!");
+            if (currentHour < RECOMMEND_WATER_INTAKE || Math.min(waterIntake, RECOMMEND_WATER_INTAKE) == waterIntake) {
+                System.out.println("Recommend drinking more water. Your daily recommended water intake by this time is 2600ml of water. You have:  " + (RECOMMEND_WATER_INTAKE - waterIntake) + "ml left!");
             } else {
                 System.out.println("On track with water intake!");
             }

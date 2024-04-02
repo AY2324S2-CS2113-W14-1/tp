@@ -1,21 +1,23 @@
-chicken rice,607,75,25,23,2,10
+chicken rice,400, 50, 30, 20, 10, 5
 char kway teow,744,76,23,29,7,10
-Laksa,377,71,18,2,4,10
-Hokkien Prawn Mee,522,69,18,19,4,10
-Kaya Toast,459,44,8,27,10,1
-Mee Goreng,500,61,18,20,4,5
-Char Siew Rice,605,91,24,16,6,10
-Nasi lemak,494,80,13,14,6,5
+laksa,377,71,18,2,4,10
+hokkien prawn mee,522,69,18,19,4,10
+kaya toast,459,44,8,27,10,1
+mee goreng,500,61,18,20,4,5
+char siew rice,605,91,24,16,6,10
+nasi lemak,494,80,13,14,6,5
 roti prata ,209,32,5,7,2,10
-Pork Satay with Satay Sauce ,36,1,5,2,10,0
-Nasi Goreng,346,45,13,12,10,2
-Wanton Mee,555,97,15,14,13,10
-Mala,583,72,12,30,10,7
-Oyster Omlette,467,40,19,24,10,1
-Pepper lunch,500,50,40,11,4,5
-Ban Mian,475,48,22,22,3,10
-Soup Kambeng,203,6,28,7,2,5
-Durian,147,27,2,5,3,5
-Ice KaChang,257,58,6,1,10,2
-Tau Huay,153,32,14,1,5,1
-Chendol,386,59,6,15,7,2
+pork satay with satay sauce ,36,1,5,2,10,0
+nasi goreng,346,45,13,12,10,2
+wanton mee,555,97,15,14,13,10
+mala,583,72,12,30,10,7
+oyster omlette,467,40,19,24,10,1
+pepper lunch,500,50,40,11,4,5
+ban mian,475,48,22,22,3,10
+soup kambeng,203,6,28,7,2,5
+durian,147,27,2,5,3,5
+ice kachang,257,58,6,1,10,2
+tau huay,153,32,14,1,5,1
+dhendol,386,59,6,15,7,2
+fried rice, 500, 60, 25, 15, 20, 3
+pizza,600, 70, 20, 25, 30, 2
