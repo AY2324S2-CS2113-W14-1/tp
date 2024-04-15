@@ -429,8 +429,8 @@ approximately 2600ml of water and 2200kcal per day.
 **Format**: `recommend`    
 **Expected output**:
 ~~~
-We recommend drinking more water. Please drink 2600 ml more water by the end of the day to
-hit the daily water intake goal :)
+We recommend drinking more water. Please drink 2600 ml more water by the end of the
+day to hit the daily water intake goal :)
     ~~
 We recommend eating more food. Please eat 1610 more calories by today :)
 ~~~
