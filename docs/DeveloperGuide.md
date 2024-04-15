@@ -165,10 +165,10 @@ This idea is similarly used when implementing the `handleListEverything` methods
 2. A `User` class consists of zero to as many `Exercise` objects in the ArrayList.
 3. Each `Exercise` contains exactly one enumeration of `ExerciseIntensity`.
 ### Drink Component
-<img src="diagrams/diagrams_png/DrinkListClassDiagram.png" alt="drawing" width="600" style="display:block; margin: 0 auto"/>
+<img src="diagrams/diagrams_png/DrinkListClassDiagram.png" alt="drawing" width="600"/>   
 
-1. Upon starting up the application, User will call `loadDrink` to fetch all data from `DrinkList.txt` and add it into `drinkListAll`.
-2. A `User` class consists of zero to as many `Drink` objects in the ArrayList and zero to as many `Water` objects in the ArrayList.
+1. Upon starting up the application, User will call `loadDrink` to fetch all data from `DrinkList.txt` and add it into `drinkListAll`.  
+2. A `User` class consists of zero to as many `Drink` objects in the ArrayList and zero to as many `Water` objects in the ArrayList.   
 ### Meal Component
 ![Meal Class Diagram](diagrams/diagrams_png/MealListClassDiagram.png)
 
