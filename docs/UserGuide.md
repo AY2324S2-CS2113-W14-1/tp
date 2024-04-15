@@ -37,14 +37,16 @@ To use the app please follow the setup procedures below:
 
 **Note**:
 1. All files under 'data' and 'db' folders should not be modified by user.
-2. Enter `exit` to properly close the program and save the data.
+2. Enter `exit` to properly close the program and save the data.   
 
 ---
 
-## 2) Features List
+## 2) Features List   
 * For ease of reading this guide, _**sample input**_ is only provided if input command is not the command itself, i.e. the input is not one-word.
-## 2.1 Information for users
-### 2.1.1 Viewing all commands: `help`
+
+
+## 2.1 Information for users   
+### 2.1.1 Viewing all commands: `help`    
 Shows a list of all possible command inputs recognised by the application.
 
 **Format**: `help`   
