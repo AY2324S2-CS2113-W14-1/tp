@@ -47,7 +47,7 @@ Given below are my contributions to the project
 
 ### Contributions to Developer Guide
 - [View our Developer Guide](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html)
-- [User Component](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html#ui-component): Add Class Diagram, 
+- [User Component](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html#user-component): Add Class Diagram, 
   Descriptions and Sequence Diagram.
 - [Ui Component](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html#ui-component): Add descriptions and 
   Sequence Diagrams.
