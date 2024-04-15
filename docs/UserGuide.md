@@ -605,6 +605,8 @@ here's the exercises you've done on 01-04-2024
 ~~~
 
 ## 2.5 For editing existing data
+Note: There is no method to edit an inputted exercise of the day. If you would like to change a value in your 
+exerciseList, please use `deleteExercise` and add it again as a new exercise (`exercise`).
 ### 2.5.1 Edit an existing meal after inserted: `editMeal`
 For a meal that was inputted in the day, edit its serving size. You may identify the meal by its index in listMeals.
 
