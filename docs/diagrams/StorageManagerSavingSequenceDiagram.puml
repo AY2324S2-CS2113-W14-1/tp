@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant ":Ui" as Ui
+participant ":StorageManager" as StorageManager
+
+participant "xyzNutrientStorage:Storage" as xyzNutrientStorage
+participant "xyzStorage:Storage" as xyzStorage
+
+hide footbox
+!pragma teoz true
+
+Ui -> StorageManager**: StorageManager(...)
+activate StorageManager
+
+
+alt input is not exit command
+else user input is exit
+Ui -> Ui ++: handleExit()
+Ui -> StorageManager: saveXYZ()
+StorageManager -> xyzStorage++: get saved data in textContent of Storage
+xyzStorage -> xyzStorage ++: writeFile(...)
+
+xyzStorage --> xyzStorage --: data saved into file
+xyzStorage --> StorageManager --: saved user's xyz data
+& StorageManager --> Ui: saved user's xyz data
+
+|||
+
+Ui -> StorageManager: saveXYZNutrients()
+StorageManager -> xyzNutrientStorage++: get saved data in textContent of Storage
+xyzNutrientStorage -> xyzNutrientStorage ++: writeFile(...)
+
+xyzNutrientStorage --> xyzNutrientStorage --: data saved into file
+xyzNutrientStorage --> StorageManager --: saved user's xyzNutrient data
+& StorageManager --> Ui: saved user's xyzNutrient data
+deactivate StorageManager
+Ui --> Ui --: exit handled
+end
+
+@enduml

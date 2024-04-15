@@ -31,8 +31,7 @@
 ## Acknowledgements
 
 Below are the references used on the project:
-1. [Developer Guide](https://se-education.org/addressbook-level3/DeveloperGuide.html)
-2. [User Guide](https://se-education.org/addressbook-level3/UserGuide.html)
+1. The general idea for the project stemmed from the ip project: [ip](https://nus-cs2113-ay2324s2.github.io/website/admin/ip-overview.html)
 
 ---
 ## Design
@@ -57,7 +56,7 @@ The architecture diagram belows shows the overall design of our FitNUS CLI app a
 
 ### Ui Component
 #### Sequence Diagram
-_Note: The following sequence diagram captures the interactions only between the Fitnus, Ui and Parser classes_
+_Note: The following sequence diagrams captures the interactions only between the Fitnus, Ui and Parser classes_
 
 ![Ui Sequence Diagram](../docs/diagrams/diagrams_png/ParserSequenceDiagram.png)         
 
@@ -103,21 +102,33 @@ _Note: The following sequence diagram captures the interactions only between the
 classes when loading and saving data.  
 XYZ is used as a placeholder for Meal / Drink / Exercise for diagram simplicity._ 
 
-![Storage Sequence Diagram](../docs/diagrams/diagrams_png/StorageManagerSequenceDiagram.png)
+**_Sequence Diagram_**: When **loading** saved data upon starting the application:
+![Storage Loading Sequence Diagram](../docs/diagrams/diagrams_png/StorageManagerLoadingSequenceDiagram.png)  
+Storage Manager has to load both the stored nutritional content/calories burnt and any user saved data.   
+Exceptions are caught if the file to load is not found and if the file to load has been manipulated.  
+
+**_Sequence Diagram_**: When **saving** data upon exiting the application:
+ ![Storage Saving Sequence Diagram](../docs/diagrams/diagrams_png/StorageManagerSavingSequenceDiagram.png)  
+Storage Manager has to save both the updated nutritional content/calories burnt and any user inputted data.
 
 ### User Component
 #### Description
-The User component will create MealList, DrinkList and ExerciseList for the user to track their data. Additionally, 
-this component is in-charge of handling view, listEverything, recommend and clear commands.
+The User component will create MealList, DrinkList and ExerciseList for the user to track their data. 
+Otherwise, this component is only in-charge of handling view, listEverything, recommend and clear commands.
 
 #### Implementation
-User Class:
+![User Class Diagram](../docs/diagrams/diagrams_png/UserClassDiagram.png)
+
+**_User Class:_**
 - Attributes:
-  - `myMealList:` Represents the user's class that managers the meal lists.
-  - `myDrinkList:` Represents the user's class that managers the drink lists.
-  - `myExerciseList:` Represents the user's class that managers the exercise lists.
+  - `myMealList:` Represents the user's class that managers the meal lists. Multiplicity = 1.
+  - `myDrinkList:` Represents the user's class that managers the drink lists. Multiplicity = 1.
+  - `myExerciseList:` Represents the user's class that managers the exercise lists. Multiplicity = 1.
 
-
+- Constructor:
+  - `User()`: A MealList, DrinkList and ExerciseList is initialised for the user to
+    track their data. However, methods to handle these lists will be handled in the respective MealList, DrinkList and
+    ExerciseList classes.
 - Methods:
   - `handleViewCalories()`: Prints the user's net calorie intake of the day.
   - `handleViewCarbohydrates()`: Prints the user's total carbohydrates intake of the day.
@@ -132,19 +143,18 @@ User Class:
   - `handleRecommendations()`: Give recommendations to the user based on their calorie and water intake.
 
 #### Sequence Diagram
-_Note: The following sequence diagram captures the interactions only between the User, MealList, DrinkList and 
-ExerciseList classes._   
+For diagram simplicity, the following choice was made when creating the diagram:
+- For the method where the user would like to view their nutrional content (handleViewXYZ), XYZ is used as a 
+  placeholder for the specified nutritional content (e.g. calories, carbohydrates, protein etc.)
 
-For diagram simplicity, the following choices were made when creating the diagram:
-- Only optional blocks for handleViewXYZ() and handleClear() methods were created.   
-  As such, methods within User such as 
-  handleRecommendations() and handleListEverything()  were omitted.
-- For methods where the user would like to view their nutrional content (handleViewXYZ), XYZ is used as a placeholder 
-  for the specified nutritional content (e.g. calories, carbohydrates, protein etc.)
+![User Sequence Diagram](../docs/diagrams/diagrams_png/UserViewXYZSequenceDiagram.png)
+The Sequence Diagram above shows the interaction between the relevant classes when handleViewXYZ() is called by 
+Parser.  
 
-![User Class Diagram](../docs/diagrams/diagrams_png/UserSequenceDiagram.png)
-
-User class initialises MealList, DrinkList and ExerciseList for the user to track their data.
+_**How it works:**_  
+The method in User will iterate through the user's MealList, DrinkList and ExerciseList each time it is called to 
+obtain the required XYZ value of each meal and/or drink and/or exercise.  
+This idea is similarly used when implementing the `handleListEverything` methods.
 
 ### Exercise Component
 ![Exercise Class Diagram](../docs/diagrams/diagrams_png/ExerciseListClassDiagram.png)
@@ -310,7 +320,7 @@ Given below are instructions to test the app on your own device.
 4. Save and Shutdown
    1. Type `exit` to shut down the FitNUS app.
    2. Upon exiting, all entries inputted will be updated to the database locally.
-
+---
 ### Basic Features
 Given below are the basic features of our FitNUS, do note that it's not the complete list of commands.
 Please refer to our User Guide for the full list of our features.
@@ -381,3 +391,9 @@ For a meal that was inputted in the day, edit its serving size. You may identify
 ~~~
 chicken rice has been edited to 10 serving(s)
 ~~~
+---
+### Missing/Corrupted Data Files
+Upon launch, if there has been errors with data files, FitNUS will automatically clear past data and create a new
+file.  
+**For manual clearing of files (only applicable to lists):**
+1. Delete the XYZList.txt file from ./data folder

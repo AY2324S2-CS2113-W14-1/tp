@@ -240,6 +240,9 @@ serving of intake.
 A reminder that this user-defined meal will only be saved to our database when you **safely exit** our application with
 the command `exit`.
 
+Additionally, you may use `newMeal` to override existing nutritional content data, by using the MEAL_NAME in the 
+command. In short, `newMeal` will **override any past data** with the specified meal name.
+
 Note: We are not responsible for whether the meal name and its nutrional contents are accurate.
 Please verify your information before inputting.
 
@@ -258,6 +261,9 @@ intake.
 A reminder that this user-defined drink will only be saved to our database when you **safely exit** our application
 with the command `exit`.
 
+Additionally, you may use `newDrink` to override existing nutritional content data, by using the DRINK_NAME in the
+command. In short, `newDrink` will **override any past data** with the specified drink name.
+
 Note: We are not responsible for whether the drink name and its nutrional contents are accurate.
 Please verify your information before inputting.
 
@@ -275,7 +281,10 @@ corresponding **calories burnt** for a **1 minute** HIGH, MEDIUM and LOW intensi
 A reminder that this user-defined exercise will only be saved to our database when you **safely exit** our application
 with the command `exit`.
 
-Note: We are not responsible for whether the exercise name and its calories burnt are accurate.
+Additionally, you may use `newExercise` to override existing calories burnt data, by using the EXERCISE_NAME in the
+command. In short, `newExercise` will **override any past data** with the specified exercise name.
+
+**Note**: We are not responsible for whether the exercise name and its calories burnt are accurate.
 Please verify your information before inputting.
 
 **Format**: `newExercise EXERCISE_NAME, CALORIES_BURNT_HIGH, CALORIES_BURNT_MEDIUM, CALORIES_BURNT_LOW`   
@@ -596,6 +605,8 @@ here's the exercises you've done on 01-04-2024
 ~~~
 
 ## 2.5 For editing existing data
+Note: There is no method to edit an inputted exercise of the day. If you would like to change a value in your 
+exerciseList, please use `deleteExercise` and add it again as a new exercise (`exercise`).
 ### 2.5.1 Edit an existing meal after inserted: `editMeal`
 For a meal that was inputted in the day, edit its serving size. You may identify the meal by its index in listMeals.
 
