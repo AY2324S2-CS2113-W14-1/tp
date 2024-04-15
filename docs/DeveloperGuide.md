@@ -1,4 +1,32 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 # Developer Guide
+
+---
+
+## Table of Contents
+<!-- TOC -->
+* [Acknowledgements](#acknowledgements)
+* [Design](#design)
+  * [Architecture](#architecture)
+  * [Ui Component](#ui-component)
+  * [Storage Component](#storage-component)
+  * [User Component](#user-component)
+  * [Exercise Component](#exercise-component)
+  * [Drink Component](#drink-component)
+  * [Meal Component](#meal-component)
+* [Implementation](#implementation)
+  * [Information on a Particular Meal Command](#information-on-a-particular-meal-command)
+  * [Eat Command](#eat-command)
+  * [Edit Meal Command](#edit-meal-command)
+  * [New Meal Command](#new-meal-command)
+* [Product Scope](#product-scope)
+* [User Stories](#user-stories)
+* [Non-Functional Requirements](#non-functional-requirements)
+* [Instructions for Manual Testing](#instructions-for-manual-testing)
+<!-- TOC -->
+
+---
 
 ## Acknowledgements
 
@@ -6,7 +34,8 @@ Below are the references used on the project:
 1. [Developer Guide](https://se-education.org/addressbook-level3/DeveloperGuide.html)
 2. [User Guide](https://se-education.org/addressbook-level3/UserGuide.html)
 
-## Design & implementation
+---
+## Design
 
 ### Architecture
 
@@ -133,13 +162,21 @@ User class initialises MealList, DrinkList and ExerciseList for the user to trac
 
 1. Upon starting up the application, User will call `loadMeal` to fetch all data from `Mealist.txt` and add it into `mealListAll`.
 2. A `User` class consists of zero to as many `Meal` objects in the ArrayList.
+
+---
 ## Implementation
 
-### Information on a Particular Meal Feature
-The `infoMeal` feature is executed on the `User` class. Let's say we want to find out about the nutrient values of chicken rice.   
-**Sample Input**: `infoMeal chicken rice`
+### Information on a Particular Meal Command
+The `infoMeal` command allows user to obtain the nutritional values (protein, calories, carbs, etc.) of a particular 
+meal. The following sequence diagram shows the execution of the `infoMeal` command
 
 ![InfoMeal Sequence Diagram](../docs/diagrams/diagrams_png/InfoMealSequenceDiagram.png)
+
+1. The user inputs an `infoMeal` command of the format `infoMeal m/MEAL` in this example we use `infoMeal m/ chicken rice` which is inputted to the `ui` object
+2. The `ui` object calls the `parseCommand()` method of the `parser` object
+3. The parser parses the command and calls the appropriate method, which in this case is `handleInfoMeal()` of `Meal` class
+4. The `Meal` class then calls the `parseInfoMeal` method to retrieve the meal name from the command
+5. After obtaining the name of the meal from `parser` object, the `Meal` class will print out the nutrient details of that particular meal.
 
 ### Eat Command
 The `eat` command is responsible for handling the tracking of meal and adding it to the Meal List. 
@@ -199,6 +236,7 @@ The `deleteMeal` command allows users to delete a meal from the list of meals th
 5. The meal is then removed by calling the `remove()` method of `MealList` and passing the index of the specified meal as a parameter
 6. Upon successful deletion of a meal a confirmation message is printed
 
+---
 ## Product scope
 ### Target user profile
 - Have a need to manage their dietary intake and exercise routines effectively.
@@ -211,6 +249,7 @@ The `deleteMeal` command allows users to delete a meal from the list of meals th
 The fitness app aims to help users manage their dietary habits and exercise routines more efficiently compared to traditional GUI-driven apps. 
 By offering a streamlined interface optimized for keyboard input and CLI interactions, users can track their meals, drinks, and exercises swiftly, allowing them to focus more on their fitness and nutritional goals and less on navigating through complex user interfaces.
 
+---
 ## User Stories
 
 | Version | As a ... | I want to ...                                                                                                                         | So that I can ...                                                                                                     |
@@ -237,11 +276,13 @@ By offering a streamlined interface optimized for keyboard input and CLI interac
 | v2.0    | user | add a new exercise to the available drinks                                                                                            | add exercises that the app did not recognize                                                                          |
 | v2.0    | user | store and load all the meals and drinks I have consumed and also the exercises I have done throughout the entire lifecycle of the app | view all of the existing data even after I close the app                                                              |
 | v2.0    | user | view all the meals and drinks I have consumed and also the exercises I have done throughtout the entire lifecycle of the app          | keep a record of my exercises, macronutrients and calories I have done and consumed for a week, a month, or even more |
+
 ## Non-Functional Requirements
 
 1. Should work on any mainstream OS (Linux, Windows, MacOS) as long as it has Java 11 or above installed.
 2. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
+---
 ## Glossary
 
 * *meal* - Any food consumed.
@@ -255,8 +296,8 @@ By offering a streamlined interface optimized for keyboard input and CLI interac
 * *fiber* - Indigestible plant material aiding digestion.
 * *water* - Essential liquid for hydration and bodily functions.
 
-
-## Instructions for manual testing
+---
+## Instructions for Manual Testing
 Given below are instructions to test the app on your own device.
 ### Launch and Shutdown
 1. Initial Launch
@@ -269,3 +310,74 @@ Given below are instructions to test the app on your own device.
 4. Save and Shutdown
    1. Type `exit` to shut down the FitNUS app.
    2. Upon exiting, all entries inputted will be updated to the database locally.
+
+### Basic Features
+Given below are the basic features of our FitNUS, do note that it's not the complete list of commands.
+Please refer to our User Guide for the full list of our features.
+
+#### <i class="fas fa-star"></i> Add a meal eaten: `eat`
+Adds a meal to the list of meals consumed today.
+
+**Format**: `eat m/MEAL s/SERVING_SIZE`  
+**Sample Input**: `eat m/Chicken Rice s/1`  
+**Expected Output**:
+~~~
+Added 1 serving of chicken rice
+~~~
+
+#### <i class="fas fa-star"></i> Find the information about a certain meal: `infoMeal`
+For the specified meal, display its nutritional content **per serving** to the user.
+
+**Format**: `infoMeal MEAL`  
+**Sample Input**: `infoMeal chicken rice`  
+**Expected Output**:
+~~~
+Meal: chicken rice (per serving)
+Calories: 400 kcal
+Carbs: 50 g
+Protein: 30 g
+Fat: 20 g
+Fiber: 10 g
+Sugar: 5 g
+~~~
+
+#### <i class="fas fa-star"></i> View daily net calorie count: `calories`
+Display current net calorie count **in kcal**  for the day. This takes into account the calories consumed from meals
+and drinks,
+and the calories burnt from exercise.
+
+**Format**: `calories`    
+**Expected output**:
+~~~
+Total Calories: 230 kcal
+~~~
+
+#### <i class="fas fa-star"></i> List today's meal intake: `listMeals`
+Display all the meals the user has inputted today.
+
+**Format**: `listMeals`   
+**Expected output**:
+~~~
+here's what you have eaten today
+1. chicken rice (serving size: 1) | date: 01-04-2024
+~~~
+
+#### <i class="fas fa-star"></i> Delete a certain meal entry: `deleteMeal`
+Delete a meal that was inputted today. You may identify the meal by its index in listMeals.
+
+**Format**: `deleteMeal INDEX`  
+**Sample Input**: `deleteMeal 1`  
+**Expected output**:
+~~~
+Removed chicken rice from meals
+~~~
+
+#### <i class="fas fa-star"></i> Edit an existing meal after inserted: `editMeal`
+For a meal that was inputted in the day, edit its serving size. You may identify the meal by its index in listMeals.
+
+**Format**: `editMeal INDEX s/NEW_SERVING_SIZE`  
+**Sample input**: `editMeal 2 s/10`  
+**Expected output**:
+~~~
+chicken rice has been edited to 10 serving(s)
+~~~
