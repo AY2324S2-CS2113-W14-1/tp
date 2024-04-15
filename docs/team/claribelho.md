@@ -40,11 +40,16 @@ Given below are my contributions to the project
 - Created User Guide in v1.0, including the description, format, sample input and expected output for each command. 
 [#35](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/35)
 - Add documentation for `allmeals`, `allDrinks` and `allExercises`. [#76](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/76)
-- Finalisation of descriptions and formatting in final v2.1 submission. [#153](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/153)
+- Finalisation of descriptions and formatting in final v2.1 submission, with heavy emphasis on including notes for 
+  the user to take note on. 
+[#153](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/153)
 
 ### Contributions to Developer Guide
-- Added Sequence Diagrams for Ui, Storage and User components.
-- Provide descriptions for User component
+- User Component: Add Class Diagram, Descriptions and Sequence Diagram.
+- Ui Component: Add descriptions and Sequence Diagrams.
+- Storage Component: Add Sequence Diagram.
+- Appendix: Manual Testing with corrupted files.
+
 
 ### Contributions to team-based tasks
 - Constantly improving the defensiveness of the code by finding bugs
