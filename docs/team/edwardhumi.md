@@ -22,9 +22,6 @@ carbohydrates. Our vision is to promote healthy lifestyle amongst NUS students.
 - Parser Class
   - Created parser for parsing commands and storage files
 
-#### Enhancements implemented
-- Updated exception handling to give more specific edge cases (ie. negative value exception for meal/drink nutrient and exercise calories and non-positive value exception for meal/drink serving size and exercise duration) [#139](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/139)
-
 #### Project Management
 - Added issues for `v1.0`, `v2.0` and `v2.1`
 
