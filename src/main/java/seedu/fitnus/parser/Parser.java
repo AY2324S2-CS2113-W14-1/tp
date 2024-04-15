@@ -711,7 +711,7 @@ public class Parser {
      *
      * @param command The command entered by the user.
      * @return The parsed date string.
-     * @throws InvalidDateException If the date format is invalid.
+     * @throws FutureDateException If the date format is invalid.
      */
     public static String parseListDate(String command) throws FutureDateException, ParseException {
         int indexOfDate = command.indexOf("d/") + 2;

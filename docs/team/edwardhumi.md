@@ -22,6 +22,10 @@ carbohydrates. Our vision is to promote healthy lifestyle amongst NUS students.
 - Parser Class
   - Created parser for parsing commands and storage files
 
+#### Enhancements implemented
+- Add exception and its handler to check whether a date is valid before displaying the list of meals/drinks/exercises for certain date
+[#61](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/61/files)
+
 #### Project Management
 - Added issues for `v1.0`, `v2.0` and `v2.1`
 
