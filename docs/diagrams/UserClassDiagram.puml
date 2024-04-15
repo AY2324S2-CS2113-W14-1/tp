@@ -1,0 +1,50 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor CLASS_ARROW_COLOR
+skinparam classBackgroundColor CLASS_DIAGRAM_COLOR
+skinparam classAttributeIconSize 0
+
+Class User {
+    - <u>MAX_WATER_INTAKE : int = 10000
+    - <u>RECOMMEND_WATER_INTAKE : int = 2600
+    - <u>RECOMMEND_CALORIE_INTAKE : long = 2200
+    + User()
+    + handleViewCalories(): void
+    + handleViewCarbohydrates(): void
+    + handleViewProteins(): void
+    + handleViewFiber(): void
+    + handleViewFat(): void
+    + handleViewSugar(): void
+    + handleListEverything(): void
+    + handleListEverythingAll(): void
+    + handleViewFat(): void
+    + handleViewSugar(): void
+    + handleListEverything(): void
+    + handleListEverythingAll(): void
+    + handleListEverythingDate(String command) : void
+    + handleClear(): void
+    + handleRecommendations(): void
+}
+
+Class MealList {
+    + <u>mealList: ArrayList<Meal>
+    + <u>mealListAll: ArrayList<Meal>
+}
+
+Class DrinkList {
+    + <u>drinkList: ArrayList<Drink>
+    + <u>drinkListAll: ArrayList<Drink>
+    + <u>waterList: ArrayList<Water>
+    + <u>waterListAll: ArrayList<Water>
+}
+
+Class ExerciseList {
+    + exerciseList: ArrayList<Exercise>
+    + exerciseListAll: ArrayList<Exercise>
+}
+
+User -down--> "myMealList 1" MealList
+User -down--> "myDrinkList 1" DrinkList
+User -down--> "myExerciseList 1" ExerciseList
+@enduml

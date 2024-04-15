@@ -21,9 +21,9 @@ import java.util.ArrayList;
  * Handles all methods related to the user's meals, drinks and exercise.
  */
 public class User {
-    public static final int MAX_WATER_INTAKE = 10000;
-    public static final int RECOMMEND_WATER_INTAKE = 2600;
-    public static final long RECOMMEND_CALORIE_INTAKE = 2200;
+    private static final int MAX_WATER_INTAKE = 10000;
+    private static final int RECOMMEND_WATER_INTAKE = 2600;
+    private static final long RECOMMEND_CALORIE_INTAKE = 2200;
 
     public static MealList myMealList;
     public static ExerciseList myExerciseList;
