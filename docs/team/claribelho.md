@@ -37,6 +37,7 @@ Given below are my contributions to the project
 * Improve checks when loading saved data in Storage to detect for user manipulation.
 
 ### Contributions to User Guide
+- [View our User Guide](https://ay2324s2-cs2113-w14-1.github.io/tp/UserGuide.html)
 - Created User Guide in v1.0, including the description, format, sample input and expected output for each command. 
 [#35](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/35)
 - Add documentation for `allmeals`, `allDrinks` and `allExercises`. [#76](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/76)
@@ -45,17 +46,23 @@ Given below are my contributions to the project
 [#153](https://github.com/AY2324S2-CS2113-W14-1/tp/pull/153)
 
 ### Contributions to Developer Guide
-- User Component: Add Class Diagram, Descriptions and Sequence Diagram.
-- Ui Component: Add descriptions and Sequence Diagrams.
-- Storage Component: Add Sequence Diagram.
-- Appendix: Manual Testing with corrupted files.
+- [View our Developer Guide](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html)
+- [User Component](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html#ui-component): Add Class Diagram, 
+  Descriptions and Sequence Diagram.
+- [Ui Component](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html#ui-component): Add descriptions and 
+  Sequence Diagrams.
+- [Storage Component](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html#sequence-diagram-1): Add 
+  Sequence Diagram.
+- [Appendix](https://ay2324s2-cs2113-w14-1.github.io/tp/DeveloperGuide.html#missingcorrupted-data-files): Manual 
+  Testing with corrupted files.
 
 
 ### Contributions to team-based tasks
-- Constantly improving the defensiveness of the code by finding bugs
-- Create User Guide and ensure it is formatted and up-to-date 
-- Documentation of Methods
-- Update of README to provide a summary of UG
+- Constantly improving the defensiveness of the code by finding bugs.
+- Create User Guide and ensure it is formatted and up-to-date. 
+- Documentation of Methods.
+- Update of README to provide a summary of UG.
+- Ensure that the website deployments of README, User Guide and Developer Guide is accurately displayed.
 
 ### Contributions beyond the project team
 - Bugs Review for other teams: [CS2113-T15-1](https://github.com/nus-cs2113-AY2324S2/tp/pull/44)

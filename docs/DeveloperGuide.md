@@ -40,7 +40,7 @@ Below are the references used on the project:
 
 The architecture diagram belows shows the overall design of our FitNUS CLI app and how each component interact with each other.
 
-![Architecture Diagram](../docs/diagrams/diagrams_png/ArchitectureDiagram.png)
+![Architecture Diagram](diagrams/diagrams_png/ArchitectureDiagram.png)
 
 **Main Components of The Architecture**
 
@@ -58,7 +58,7 @@ The architecture diagram belows shows the overall design of our FitNUS CLI app a
 #### Sequence Diagram
 _Note: The following sequence diagrams captures the interactions only between the Fitnus, Ui and Parser classes_
 
-![Ui Sequence Diagram](../docs/diagrams/diagrams_png/ParserSequenceDiagram.png)         
+![ParserSequenceDiagram.png](../docs/diagrams/diagrams_png/ParserSequenceDiagram.png)         
 
 When the user first starts the application, the Ui class will be constructed. Within the Ui class, Scanner and Parser 
 similarly will be constructed.
