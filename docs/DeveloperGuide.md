@@ -104,12 +104,13 @@ classes when loading and saving data.
 XYZ is used as a placeholder for Meal / Drink / Exercise for diagram simplicity._ 
 
 **_Sequence Diagram_**: When **loading** saved data upon starting the application:
-![Storage Loading Sequence Diagram](diagrams/diagrams_png/StorageManagerLoadingSequenceDiagram.png)  
+<img src="diagrams/diagrams_png/StorageManagerLoadingSequenceDiagram.png" alt="drawing" width="900" style="display:block; margin: 0 auto"/>
+
 Storage Manager has to load both the stored nutritional content/calories burnt and any user saved data.   
 Exceptions are caught if the file to load is not found and if the file to load has been manipulated.  
 
 **_Sequence Diagram_**: When **saving** data upon exiting the application:
- ![Storage Saving Sequence Diagram](diagrams/diagrams_png/StorageManagerSavingSequenceDiagram.png)  
+<img src="diagrams/diagrams_png/StorageManagerSavingSequenceDiagram.png" alt="drawing" width="1000" style="display:block; margin: 0 auto"/>
 Storage Manager has to save both the updated nutritional content/calories burnt and any user inputted data.
 
 ### User Component
