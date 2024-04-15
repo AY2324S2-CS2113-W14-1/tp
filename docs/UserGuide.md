@@ -37,13 +37,16 @@ To use the app please follow the setup procedures below:
 
 **Note**:
 1. All files under 'data' and 'db' folders should not be modified by user.
-2. Enter `exit` to properly close the program and save the data.
+2. Enter `exit` to properly close the program and save the data.   
+
 ---
-## 2) Features List
-* For ease of reading this guide, _**sample input**_ is only provided if input command is not the command itself, i.e. the
-  input is not one-word.
-## 2.1 Information for users
-### 2.1.1 Viewing all commands: `help`
+
+## 2) Features List   
+* For ease of reading this guide, _**sample input**_ is only provided if input command is not the command itself, i.e. the input is not one-word.
+
+
+## 2.1 Information for users   
+### 2.1.1 Viewing all commands: `help`    
 Shows a list of all possible command inputs recognised by the application.
 
 **Format**: `help`   
@@ -113,7 +116,8 @@ Miscellaneous:
 ~~~
 ### 2.1.2 Viewing all pre-defined meals: `allMeals`
 Shows a list of all pre-defined meals. These meals will have their nutritional content defined per serving size and can
-be inputted immediately.  
+be inputted immediately.    
+
 Note: If the user has added a self-defined meal previously (using `newMeal`), this self-defined meal will also be
 displayed.
 
@@ -150,7 +154,8 @@ You may also input a meal that isn't here with newMeal.
 
 ### 2.1.3 Viewing all pre-defined drinks: `allDrinks`
 Shows a list of all pre-defined drinks. These drinks will have their nutritional content defined per 100ml
-and can be inputted immediately.
+and can be inputted immediately.   
+
 Note: If the user has added a self-defined drink previously (using `newDrink`), this self-defined drink will also be
 displayed.
 
@@ -183,6 +188,7 @@ You may also input a drink that isn't here with newDrink.
 ### 2.1.4 Viewing all pre-defined exercises: `allExercises`
 Shows a list of all pre-defined exercises. These exercises will have the number of calories burnt for a
 high/medium/low intensity workout defined per minute and can be inputted immediately.  
+
 Note: If the user has added a self-defined exercise previously (using `newExercise`), this self-defined exercise will
 also be displayed.
 
