@@ -110,7 +110,7 @@ Storage Manager has to load both the stored nutritional content/calories burnt a
 Exceptions are caught if the file to load is not found and if the file to load has been manipulated.  
 
 **_Sequence Diagram_**: When **saving** data upon exiting the application:
-<img src="diagrams/diagrams_png/StorageManagerSavingSequenceDiagram.png" alt="drawing" width="1000" style="display:block; margin: 0 auto"/>
+<img src="diagrams/diagrams_png/StorageManagerSavingSequenceDiagram.png" alt="drawing" width="985" style="display:block; margin: 0 auto"/>
 Storage Manager has to save both the updated nutritional content/calories burnt and any user inputted data.
 
 ### User Component
@@ -149,7 +149,7 @@ For diagram simplicity, the following choice was made when creating the diagram:
 - For the method where the user would like to view their nutrional content (handleViewXYZ), XYZ is used as a 
   placeholder for the specified nutritional content (e.g. calories, carbohydrates, protein etc.)
 
-![User Sequence Diagram](diagrams/diagrams_png/UserViewXYZSequenceDiagram.png)
+<img src="diagrams/diagrams_png/UserViewXYZSequenceDiagram.png" alt="drawing" width="985" style="display:block; margin: 0 auto"/>
 The Sequence Diagram above shows the interaction between the relevant classes when handleViewXYZ() is called by 
 Parser.  
 
@@ -165,7 +165,7 @@ This idea is similarly used when implementing the `handleListEverything` methods
 2. A `User` class consists of zero to as many `Exercise` objects in the ArrayList.
 3. Each `Exercise` contains exactly one enumeration of `ExerciseIntensity`.
 ### Drink Component
-![Drink Class Diagram](diagrams/diagrams_png/DrinkListClassDiagram.png)
+<img src="diagrams/diagrams_png/DrinkListClassDiagram.png" alt="drawing" width="600" style="display:block; margin: 0 auto"/>
 
 1. Upon starting up the application, User will call `loadDrink` to fetch all data from `DrinkList.txt` and add it into `drinkListAll`.
 2. A `User` class consists of zero to as many `Drink` objects in the ArrayList and zero to as many `Water` objects in the ArrayList.
