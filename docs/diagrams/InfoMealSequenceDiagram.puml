@@ -2,28 +2,34 @@
 !include Style.puml
 skinparam ArrowFontStyle plain
 
+skinparam participant {
+    BackgroundColor #F5F0FF
+    BorderColor black
+    FontColor black
+}
+
 actor User
 
-participant ":Ui" as Ui MAIN_COLOR
-participant ":Parser" as Parser PARSER_COLOR
-participant "<<class>>\nMeal" as Meal INTERFACE_COLOR
+participant ":ui" as ui
+participant ":parser" as parser
+participant "<<class>>\nMeal" as Meal
 
-User-> Ui : input: infoMeal chicken rice
-activate Ui
+User-> ui : input: infoMeal chicken rice
+activate ui
 
-Ui -> Parser : handleCommand("infoMeal chicken rice")
-activate Parser
+ui -> parser : parseCommand("infoMeal chicken rice")
+activate parser
 
-Parser -> Meal : handleInfoMeal("infoMeal chicken rice")
+parser -> Meal : handleInfoMeal("infoMeal chicken rice")
 activate Meal
-Meal --> Parser : parseInfoMeal("infoMeal chicken rice")
-Parser -> Meal : return name
-deactivate Parser
+Meal --> parser : parseInfoMeal("infoMeal chicken rice")
+parser -> Meal : return name
+deactivate parser
 
-Meal -> Meal : printNutrientDetails(name)
-Meal --> Ui
+Meal -> Meal : print the nutrient details of the meal based on its name
+Meal --> ui
 deactivate Meal
 
-Ui --> User
+ui --> User
 
 @enduml
