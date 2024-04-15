@@ -24,6 +24,7 @@
 * [User Stories](#user-stories)
 * [Non-Functional Requirements](#non-functional-requirements)
 * [Instructions for Manual Testing](#instructions-for-manual-testing)
+* [Missing/Corrupted Data Files](#missingcorrupted-data-files)
 <!-- TOC -->
 
 ---
@@ -40,7 +41,7 @@ Below are the references used on the project:
 
 The architecture diagram belows shows the overall design of our FitNUS CLI app and how each component interact with each other.
 
-![Architecture Diagram](../docs/diagrams/diagrams_png/ArchitectureDiagram.png)
+![Architecture Diagram](diagrams/diagrams_png/ArchitectureDiagram.png)
 
 **Main Components of The Architecture**
 
@@ -58,7 +59,7 @@ The architecture diagram belows shows the overall design of our FitNUS CLI app a
 #### Sequence Diagram
 _Note: The following sequence diagrams captures the interactions only between the Fitnus, Ui and Parser classes_
 
-![Ui Sequence Diagram](../docs/diagrams/diagrams_png/ParserSequenceDiagram.png)         
+![Ui Sequence Diagram](diagrams/diagrams_png/ParserSequenceDiagram.png)         
 
 When the user first starts the application, the Ui class will be constructed. Within the Ui class, Scanner and Parser 
 similarly will be constructed.
@@ -95,7 +96,7 @@ into list in the `MealList`, `DrinkList`, and `ExerciseList`. If the txt files a
 from the list and format it into string. Then, it will append all the strings and write the files to the corresponding `Storage`.
 
 #### Class Diagram
-![Storage Class Diagram](../docs/diagrams/diagrams_png/StorageClassDiagram.png)
+![Storage Class Diagram](diagrams/diagrams_png/StorageClassDiagram.png)
 
 #### Sequence Diagram
 _Note: The following sequence diagram captures the interactions only between the Ui, Storage and StorageManager 
@@ -103,12 +104,12 @@ classes when loading and saving data.
 XYZ is used as a placeholder for Meal / Drink / Exercise for diagram simplicity._ 
 
 **_Sequence Diagram_**: When **loading** saved data upon starting the application:
-![Storage Loading Sequence Diagram](../docs/diagrams/diagrams_png/StorageManagerLoadingSequenceDiagram.png)  
+![Storage Loading Sequence Diagram](diagrams/diagrams_png/StorageManagerLoadingSequenceDiagram.png)  
 Storage Manager has to load both the stored nutritional content/calories burnt and any user saved data.   
 Exceptions are caught if the file to load is not found and if the file to load has been manipulated.  
 
 **_Sequence Diagram_**: When **saving** data upon exiting the application:
- ![Storage Saving Sequence Diagram](../docs/diagrams/diagrams_png/StorageManagerSavingSequenceDiagram.png)  
+ ![Storage Saving Sequence Diagram](diagrams/diagrams_png/StorageManagerSavingSequenceDiagram.png)  
 Storage Manager has to save both the updated nutritional content/calories burnt and any user inputted data.
 
 ### User Component
@@ -117,7 +118,7 @@ The User component will create MealList, DrinkList and ExerciseList for the user
 Otherwise, this component is only in-charge of handling view, listEverything, recommend and clear commands.
 
 #### Implementation
-![User Class Diagram](../docs/diagrams/diagrams_png/UserClassDiagram.png)
+![User Class Diagram](diagrams/diagrams_png/UserClassDiagram.png)
 
 **_User Class:_**
 - Attributes:
@@ -147,7 +148,7 @@ For diagram simplicity, the following choice was made when creating the diagram:
 - For the method where the user would like to view their nutrional content (handleViewXYZ), XYZ is used as a 
   placeholder for the specified nutritional content (e.g. calories, carbohydrates, protein etc.)
 
-![User Sequence Diagram](../docs/diagrams/diagrams_png/UserViewXYZSequenceDiagram.png)
+![User Sequence Diagram](diagrams/diagrams_png/UserViewXYZSequenceDiagram.png)
 The Sequence Diagram above shows the interaction between the relevant classes when handleViewXYZ() is called by 
 Parser.  
 
@@ -157,18 +158,18 @@ obtain the required XYZ value of each meal and/or drink and/or exercise.
 This idea is similarly used when implementing the `handleListEverything` methods.
 
 ### Exercise Component
-![Exercise Class Diagram](../docs/diagrams/diagrams_png/ExerciseListClassDiagram.png)
+![Exercise Class Diagram](diagrams/diagrams_png/ExerciseListClassDiagram.png)
 
 1. Upon starting up the application, User will call `loadExercise` to fetch all data from `ExerciseList.txt` and add it into `exerciseListAll`.
 2. A `User` class consists of zero to as many `Exercise` objects in the ArrayList.
 3. Each `Exercise` contains exactly one enumeration of `ExerciseIntensity`.
 ### Drink Component
-![Drink Class Diagram](../docs/diagrams/diagrams_png/DrinkListClassDiagram.png)
+![Drink Class Diagram](diagrams/diagrams_png/DrinkListClassDiagram.png)
 
 1. Upon starting up the application, User will call `loadDrink` to fetch all data from `DrinkList.txt` and add it into `drinkListAll`.
 2. A `User` class consists of zero to as many `Drink` objects in the ArrayList and zero to as many `Water` objects in the ArrayList.
 ### Meal Component
-![Meal Class Diagram](../docs/diagrams/diagrams_png/MealListClassDiagram.png)
+![Meal Class Diagram](diagrams/diagrams_png/MealListClassDiagram.png)
 
 1. Upon starting up the application, User will call `loadMeal` to fetch all data from `Mealist.txt` and add it into `mealListAll`.
 2. A `User` class consists of zero to as many `Meal` objects in the ArrayList.
@@ -180,7 +181,7 @@ This idea is similarly used when implementing the `handleListEverything` methods
 The `infoMeal` command allows user to obtain the nutritional values (protein, calories, carbs, etc.) of a particular 
 meal. The following sequence diagram shows the execution of the `infoMeal` command
 
-![InfoMeal Sequence Diagram](../docs/diagrams/diagrams_png/InfoMealSequenceDiagram.png)
+![InfoMeal Sequence Diagram](diagrams/diagrams_png/InfoMealSequenceDiagram.png)
 
 1. The user inputs an `infoMeal` command of the format `infoMeal m/MEAL` in this example we use `infoMeal m/ chicken rice` which is inputted to the `ui` object
 2. The `ui` object calls the `parseCommand()` method of the `parser` object
@@ -192,7 +193,7 @@ meal. The following sequence diagram shows the execution of the `infoMeal` comma
 The `eat` command is responsible for handling the tracking of meal and adding it to the Meal List. 
 The following sequence diagram shows the execution of the `eat` command.
 
-![Eat Command Sequence Diagram](../docs/diagrams/diagrams_png/EatCommandSequenceDiagram.png)
+![Eat Command Sequence Diagram](diagrams/diagrams_png/EatCommandSequenceDiagram.png)
 
 1. The user inputs an `eat` command of the format `eat m/MEAL s/SERVING_SIZE` into the `ui` object
 2. The `ui` object calls the `parseCommand()` method of the `parser` object
@@ -209,7 +210,7 @@ Note: The implementation for `drink` and `exercise` command have similar sequenc
 The `editMeal` command allows users to edit the serving sizes of their meals that have already been added to the Meal List.
 The following sequence diagram shows the execution of the `editMeal` command.
 
-![Edit Meal Command Sequence Diagram](../docs/diagrams/diagrams_png/EditMealCommandSequenceDiagram.png)
+![Edit Meal Command Sequence Diagram](diagrams/diagrams_png/EditMealCommandSequenceDiagram.png)
 
 1. The user inputs an `editMeal` command of the format `editMeal INDEX s/NEW_SERVING_SIZE` into the `ui` object
 2. The `ui` object calls the `parseCommand()` method of the `parser` object
@@ -226,7 +227,7 @@ Note: The implementation for `editDrink` and `editWater` command have similar se
 The `newMeal` command allows users to add new meal to the list of available meals by specifying the meal name and its nutrients.
 The following sequence diagram shows the execution of the `newMeal` command.
 
-![New Meal Command Sequence Diagram](../docs/diagrams/diagrams_png/NewMealCommandSequenceDiagram.png)
+![New Meal Command Sequence Diagram](diagrams/diagrams_png/NewMealCommandSequenceDiagram.png)
 
 1. The user inputs an `newMeal` command of the format `newMeal MEAL_NAME,CALORIES,CARBS,PROTEIN,FAT,FIBER,SUGAR` into the `ui` object
 2. The `ui` object calls the `parseCommand()` method of the `parser` object
@@ -320,6 +321,7 @@ Given below are instructions to test the app on your own device.
 4. Save and Shutdown
    1. Type `exit` to shut down the FitNUS app.
    2. Upon exiting, all entries inputted will be updated to the database locally.
+
 ---
 ### Basic Features
 Given below are the basic features of our FitNUS, do note that it's not the complete list of commands.
