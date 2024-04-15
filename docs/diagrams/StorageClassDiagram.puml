@@ -6,14 +6,7 @@ skinparam classBackgroundColor CLASS_DIAGRAM_COLOR
 skinparam classAttributeIconSize 0
 
 Class Ui {
-    - mealStorage: Storage
-    - drinkStorage: Storage
-    - exerciseStorage: Storage
-    - mealNutrientStorage: Storage
-    - drinkNutrientStorage: Storage
-    - exerciseCaloriesStorage: Storage
-    - storageManager: StorageManager
-    - parser: Parser
+    + isExit: boolean
     + handleExit(): void
 }
 
