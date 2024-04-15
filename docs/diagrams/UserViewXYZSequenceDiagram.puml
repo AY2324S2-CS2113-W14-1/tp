@@ -24,7 +24,6 @@ User -> ExerciseList **: ExerciseList()
 activate ExerciseList
 
 |||
-opt user input is viewXYZ
 Parser -> User ++: handleViewXYZ()
 loop all meals in myMealList
 User -> MealList: get XYZ value for meal
@@ -53,17 +52,5 @@ end
 
 User --> Parser --: display to user their XYZ content
 
-end
-
-opt user input is clear
-Parser -> User ++: handleClear()
-User -> MealList: clear mealList
-MealList --> User: mealList cleared
-User -> DrinkList: clear drinkList
-DrinkList --> User: drinkList cleared
-User -> ExerciseList: clear exerciseList
-ExerciseList --> User: exerciseList cleared
-
-User --> Parser --: clearing of lists handled
 
 @enduml

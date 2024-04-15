@@ -9,14 +9,7 @@ participant "xyzStorage:Storage" as xyzStorage
 
 hide footbox
 !pragma teoz true
-'
-'Ui -> mealStorage**: Storage(...)
-'Ui -> drinkStorage**: Storage(...)
-'Ui -> exerciseStorage**: Storage(...)
-'Ui -> mealNutrientStorage**: Storage(...)
-'Ui -> drinkNutrientStorage**: Storage(...)
-'Ui -> exerciseCaloriesStorage**: Storage(...)
-activate Ui
+
 Ui -> StorageManager**: StorageManager(...)
 activate StorageManager
 
@@ -50,33 +43,11 @@ deactivate StorageManager
 else FileNotFoundException caught
 StorageManager -> xyzStorage ++: createFile()
 xyzStorage --> StorageManager --: created file to store user's data
+
+else Exceptions related to saved file manipulations caught
+StorageManager -> xyzStorage ++: clearFile()
+xyzStorage --> StorageManager --: cleared previously saved file
 end
 
-|||
-
-alt input is not exit command
-else user input is exit
-Ui -> Ui ++: handleExit()
-Ui -> StorageManager: saveXYZ()
-StorageManager -> xyzStorage++: get saved data in textContent of Storage
-xyzStorage -> xyzStorage ++: writeFile(...)
-
-xyzStorage --> xyzStorage --: data saved into file
-xyzStorage --> StorageManager --: saved user's xyz data
-& StorageManager --> Ui: saved user's xyz data
-
-|||
-
-Ui -> StorageManager: saveXYZNutrients()
-StorageManager -> xyzNutrientStorage++: get saved data in textContent of Storage
-xyzNutrientStorage -> xyzNutrientStorage ++: writeFile(...)
-
-xyzNutrientStorage --> xyzNutrientStorage --: data saved into file
-xyzNutrientStorage --> StorageManager --: saved user's xyzNutrient data
-& StorageManager --> Ui: saved user's xyzNutrient data
-deactivate StorageManager
-deactivate Ui
-Ui --> Ui --: exit handled
-end
 
 @enduml
